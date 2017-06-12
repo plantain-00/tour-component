@@ -1,5 +1,14 @@
 export type TourData = {
-    // tslint:disable-next-line:ban-types
-    component: string | Function;
-    data: any;
+    steps: Step[],
+    index: number,
+};
+
+export type Step = {
+    left?: string;
+    right?: string;
+    top?: string;
+    bottom?: string;
+    direction: "left" | "right" | "top" | "bottom";
+    content: string;
+    next: string;
 };

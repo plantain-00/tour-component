@@ -1,7 +1,7 @@
 import * as Vue from "vue";
 import Component from "vue-class-component";
 import "../../dist/vue";
-import * as common from "../../dist/common";
+import { data } from "../common";
 
 @Component({
     template: `
@@ -14,10 +14,7 @@ import * as common from "../../dist/common";
     `,
 })
 class App extends Vue {
-    data: common.TourData = {
-        component: "",
-        data: "",
-    };
+    data = data;
 }
 
 // tslint:disable-next-line:no-unused-expression

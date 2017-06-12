@@ -1,1 +1,1 @@
-export const srcVueTemplateHtml = `<div class="tour-tip"><span class="tour-arrow tt-right"></span><div class="tour-content-wrapper"><p>Test text.</p><a class="small button tour-next-tip">Next</a><a class="tour-close-tip">×</a></div></div>`;
+export const srcVueTemplateHtml = `<div class="tour-tip" v-if="step" :style="position"><span :class="arrowClassName"></span><div class="tour-content-wrapper"><p>{{step.content}}</p><a class="small button tour-next-tip" @click="next()">{{step.next}}</a><a class="tour-close-tip" @click="close()">×</a></div></div>`;

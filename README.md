@@ -12,8 +12,6 @@ A vuejs, reactjs and angular tour component.
 + vuejs component
 + reactjs component
 + angular component
-+ commonjs module
-+ custom component
 
 #### install
 
@@ -83,7 +81,17 @@ data | [TourData](#tour-data-structure)[] | the data of the tour
 
 ```ts
 type TourData = {
-    component: string | Function; // the item component, for vuejs, it is the component name, for reactjs, it is the class object
-    data: any; // the data will be passed to the component as `data` props
+    steps: Step[],
+    index: number, // `-1` for hide, `0` for start
+};
+
+type Step = {
+    left?: string;
+    right?: string;
+    top?: string;
+    bottom?: string;
+    direction: "left" | "right" | "top" | "bottom";
+    content: string;
+    next: string;
 };
 ```
