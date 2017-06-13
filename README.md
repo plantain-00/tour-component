@@ -83,6 +83,7 @@ data | [TourData](#tour-data-structure)[] | the data of the tour
 type TourData = {
     steps: Step[],
     index: number, // `-1` for hide, `0` for start
+    localStorageKey: string;
 };
 
 type Step = {

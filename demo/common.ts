@@ -8,4 +8,9 @@ export const data: common.TourData = {
         { right: "300px", top: "200px", direction: "right", content: "step 4", next: "done" },
     ],
     index: 0,
+    localStorageKey: "tour-test",
 };
+
+if (localStorage.getItem(data.localStorageKey)) {
+    data.index = -1;
+}

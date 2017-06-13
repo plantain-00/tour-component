@@ -1,6 +1,7 @@
 export type TourData = {
     steps: Step[],
     index: number,
+    localStorageKey: string;
 };
 
 export type Step = {

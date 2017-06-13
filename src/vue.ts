@@ -27,10 +27,16 @@ class Tour extends Vue {
 
     next() {
         this.data.index++;
+        if (this.data.index >= this.data.steps.length) {
+            this.close();
+        }
     }
 
     close() {
         this.data.index = -1;
+        if (this.data.localStorageKey) {
+            localStorage.setItem(this.data.localStorageKey, "1");
+        }
     }
 }
 

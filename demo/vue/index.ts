@@ -10,11 +10,16 @@ import { data } from "../common";
         <br/>
         <tour :data="data">
         </tour>
+        <button @click="deleteValue()">delete the value in localstorage</button>
     </div>
     `,
 })
 class App extends Vue {
     data = data;
+
+    deleteValue() {
+        localStorage.removeItem(data.localStorageKey);
+    }
 }
 
 // tslint:disable-next-line:no-unused-expression
