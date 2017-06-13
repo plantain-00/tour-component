@@ -1,18 +1,23 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Tour } from "../../dist/react";
-import * as common from "../../dist/common";
+import { data } from "../common";
 
 class Main extends React.Component<{}, {}> {
-    data: common.TourData;
+    data = data;
+
+    deleteValue() {
+        localStorage.removeItem(data.localStorageKey);
+    }
 
     render() {
         return (
             <div>
                 <a href="https://github.com/plantain-00/tour-component/tree/master/demo/react/index.tsx" target="_blank">the source code of the demo</a>
-                <br/>
+                <br />
                 <Tour data={this.data}>
                 </Tour>
+                <button onClick={e => this.deleteValue()}>delete the value in localstorage</button>
             </div>
         );
     }

@@ -10,8 +10,14 @@ import { srcVueTemplateHtml } from "./vue-variables";
 class Tour extends Vue {
     data: common.TourData;
 
+    index = -1;
+
+    beforeMount() {
+        this.index = this.data.index;
+    }
+
     get step() {
-        return (this.data.index < this.data.steps.length && this.data.index >= 0) ? this.data.steps[this.data.index] : null;
+        return (this.index < this.data.steps.length && this.index >= 0) ? this.data.steps[this.index] : null;
     }
     get arrowClassName() {
         return this.step ? `tour-arrow tt-${this.step.direction}` : "tour-arrow";
@@ -26,14 +32,14 @@ class Tour extends Vue {
     }
 
     next() {
-        this.data.index++;
-        if (this.data.index >= this.data.steps.length) {
+        this.index++;
+        if (this.index >= this.data.steps.length) {
             this.close();
         }
     }
 
     close() {
-        this.data.index = -1;
+        this.index = -1;
         if (this.data.localStorageKey) {
             localStorage.setItem(this.data.localStorageKey, "1");
         }

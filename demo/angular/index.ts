@@ -9,7 +9,7 @@ enableProdMode();
 
 import { Component } from "@angular/core";
 
-import * as common from "../../dist/common";
+import { data } from "../common";
 
 @Component({
     selector: "app",
@@ -19,11 +19,16 @@ import * as common from "../../dist/common";
         <br/>
         <tour [data]="data">
         </tour>
+        <button (click)="deleteValue()">delete the value in localstorage</button>
     </div>
     `,
 })
 export class MainComponent {
-    data: common.TourData;
+    data = data;
+
+    deleteValue() {
+        localStorage.removeItem(data.localStorageKey);
+    }
 }
 
 import { NgModule } from "@angular/core";

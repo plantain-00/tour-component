@@ -1,1 +1,1 @@
-export const srcAngularTemplateHtml = `<div></div>`;
+export const srcAngularTemplateHtml = `<div class="tour-tip" *ngIf="step" [style.left]="step.left" [style.right]="step.right" [style.top]="step.top" [style.bottom]="step.bottom"><span [class]="arrowClassName"></span><div class="tour-content-wrapper"><p>{{step.content}}</p><a class="small button tour-next-tip" (click)="next()">{{step.next}}</a><a class="tour-close-tip" (click)="close()">×</a></div></div>`;
