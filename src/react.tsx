@@ -3,15 +3,11 @@ import * as common from "./common";
 
 export class Tour extends React.PureComponent<{
     data: common.TourData;
+    index: number;
+    update: (index: number) => void;
 }, {}> {
-    index = -1;
-
-    componentWillMount() {
-        this.index = this.props.data.index;
-    }
-
     get step() {
-        return (this.index < this.props.data.steps.length && this.index >= 0) ? this.props.data.steps[this.index] : null;
+        return (this.props.index < this.props.data.steps.length && this.props.index >= 0) ? this.props.data.steps[this.props.index] : null;
     }
     get arrowClassName() {
         return this.step ? `tour-arrow tt-${this.step.direction}` : "tour-arrow";
@@ -26,16 +22,14 @@ export class Tour extends React.PureComponent<{
     }
 
     next() {
-        this.index++;
-        this.setState({ index: this.index });
-        if (this.index >= this.props.data.steps.length) {
+        this.props.update(this.props.index + 1);
+        if (this.props.index + 1 >= this.props.data.steps.length) {
             this.close();
         }
     }
 
     close() {
-        this.index = -1;
-        this.setState({ index: this.index });
+        this.props.update(-1);
         if (this.props.data.localStorageKey) {
             localStorage.setItem(this.props.data.localStorageKey, "1");
         }

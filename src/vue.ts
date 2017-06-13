@@ -5,16 +5,11 @@ import { srcVueTemplateHtml } from "./vue-variables";
 
 @Component({
     template: srcVueTemplateHtml,
-    props: ["data"],
+    props: ["data", "index"],
 })
 class Tour extends Vue {
     data: common.TourData;
-
-    index = -1;
-
-    beforeMount() {
-        this.index = this.data.index;
-    }
+    index: number;
 
     get step() {
         return (this.index < this.data.steps.length && this.index >= 0) ? this.data.steps[this.index] : null;
@@ -32,14 +27,14 @@ class Tour extends Vue {
     }
 
     next() {
-        this.index++;
-        if (this.index >= this.data.steps.length) {
+        this.$emit("update", this.index + 1);
+        if (this.index + 1 >= this.data.steps.length) {
             this.close();
         }
     }
 
     close() {
-        this.index = -1;
+        this.$emit("update", -1);
         if (this.data.localStorageKey) {
             localStorage.setItem(this.data.localStorageKey, "1");
         }

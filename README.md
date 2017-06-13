@@ -32,7 +32,9 @@ import "tour-component/dist/vue";
 ```
 
 ```html
-<tour :data="data">
+<tour :data="data"
+    :index="index"
+    @update="update($event)">
 </tour>
 ```
 
@@ -45,7 +47,9 @@ import { Tour } from "tour-component/dist/react";
 ```
 
 ```jsx
-<Tour data={this.data}>
+<Tour data={this.data}
+    index={this.index}
+    update={e => this.update(e)}>
 </Tour>
 ```
 
@@ -65,7 +69,9 @@ class MainModule { }
 ```
 
 ```html
-<tour [data]="data">
+<tour [data]="data"
+    [index]="index"
+    (update)="update($event)">
 </tour>
 ```
 
@@ -76,13 +82,14 @@ the online demo: https://plantain-00.github.io/tour-component/demo/angular/index
 name | type | description
 --- | --- | ---
 data | [TourData](#tour-data-structure)[] | the data of the tour
+index | number | the step index
+update | (index: number)=> void | triggered when press next or close
 
 #### tour data structure
 
 ```ts
 type TourData = {
     steps: Step[],
-    index: number, // `-1` for hide, `0` for start
     localStorageKey: string;
 };
 
@@ -95,4 +102,12 @@ type Step = {
     content: string;
     next: string;
 };
+```
+
+#### change log
+
+```
+// v1 to v2
+move `index` out from `data` as a property
+add `update` event
 ```

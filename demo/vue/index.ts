@@ -1,14 +1,16 @@
 import * as Vue from "vue";
 import Component from "vue-class-component";
 import "../../dist/vue";
-import { data } from "../common";
+import { data, index } from "../common";
 
 @Component({
     template: `
     <div>
         <a href="https://github.com/plantain-00/tour-component/tree/master/demo/vue/index.ts" target="_blank">the source code of the demo</a>
         <br/>
-        <tour :data="data">
+        <tour :data="data"
+            :index="index"
+            @update="update($event)">
         </tour>
         <button @click="deleteValue()">delete the value in localstorage</button>
     </div>
@@ -16,9 +18,15 @@ import { data } from "../common";
 })
 class App extends Vue {
     data = data;
+    index = index;
 
     deleteValue() {
         localStorage.removeItem(data.localStorageKey);
+        this.update(0);
+    }
+
+    update(index: number) {
+        this.index = index;
     }
 }
 

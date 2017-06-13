@@ -7,10 +7,7 @@ export const data: common.TourData = {
         { right: "300px", top: "150px", direction: "left", content: "step 3", next: "next" },
         { right: "300px", top: "200px", direction: "right", content: "step 4", next: "done" },
     ],
-    index: 0,
     localStorageKey: "tour-test",
 };
 
-if (localStorage.getItem(data.localStorageKey)) {
-    data.index = -1;
-}
+export const index = localStorage.getItem(data.localStorageKey) ? -1 : 0;

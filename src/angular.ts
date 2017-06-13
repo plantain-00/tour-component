@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 import * as common from "./common";
 import { srcAngularTemplateHtml } from "./angular-variables";
 
@@ -9,12 +9,10 @@ import { srcAngularTemplateHtml } from "./angular-variables";
 export class TourComponent {
     @Input()
     data: common.TourData;
-
-    index = -1;
-
-    ngOnInit() {
-        this.index = this.data.index;
-    }
+    @Input()
+    index: number;
+    @Output()
+    update = new EventEmitter();
 
     get step() {
         return (this.index < this.data.steps.length && this.index >= 0) ? this.data.steps[this.index] : null;
@@ -24,14 +22,14 @@ export class TourComponent {
     }
 
     next() {
-        this.index++;
-        if (this.index >= this.data.steps.length) {
+        this.update.emit(this.index + 1);
+        if (this.index + 1 >= this.data.steps.length) {
             this.close();
         }
     }
 
     close() {
-        this.index = -1;
+        this.update.emit(-1);
         if (this.data.localStorageKey) {
             localStorage.setItem(this.data.localStorageKey, "1");
         }
