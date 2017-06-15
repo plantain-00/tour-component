@@ -12,7 +12,7 @@
     "cleancss": "cleancss -o dist/tour.min.css dist/tour.css",
     "cleancss-demo": "cleancss -o demo/index.bundle.css dist/tour.min.css ./node_modules/github-fork-ribbon-css/gh-fork-ribbon.css",
     "clean": "rimraf dist",
-    "clean-rev": "rimraf demo/*.bundle-*.js demo/*.bundle-*.css",
+    "clean-rev": "rimraf rimraf demo/**/index.bundle-*.js demo/*.bundle-*.css",
     "file2variable": "file2variable-cli src/vue.template.html -o src/vue-variables.ts --html-minify && file2variable-cli src/angular.template.html -o src/angular-variables.ts --html-minify",
     "build": "npm run clean-rev && npm run clean && npm run file2variable && npm run tsc && npm run lessc && npm run cleancss && npm run cleancss-demo && npm run webpack && npm run rev-static",
     "lint": "npm run tslint && npm run stylelint",
