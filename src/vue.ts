@@ -1,4 +1,4 @@
-import * as Vue from "vue";
+import Vue from "vue";
 import Component from "vue-class-component";
 import * as common from "./common";
 import { srcVueTemplateHtml } from "./vue-variables";
@@ -12,18 +12,23 @@ class Tour extends Vue {
     index: number;
 
     get step() {
-        return (this.index < this.data.steps.length && this.index >= 0) ? this.data.steps[this.index] : null;
+        const step = (this.index < this.data.steps.length && this.index >= 0) ? this.data.steps[this.index] : null;
+        Vue.nextTick(() => {
+            common.unhighlight(this.data.steps);
+            if (step) {
+                common.highlight(step);
+                if (typeof step.scrollTop === "number") {
+                    window.scrollTo(0, step.scrollTop);
+                }
+            }
+        });
+        return step;
     }
     get arrowClassName() {
         return this.step ? `tour-arrow tt-${this.step.direction}` : "tour-arrow";
     }
     get position() {
-        return this.step ? {
-            left: this.step.left,
-            right: this.step.right,
-            top: this.step.top,
-            bottom: this.step.bottom,
-        } : {};
+        return common.getStepPosition(this.step);
     }
 
     next() {

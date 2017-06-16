@@ -12,6 +12,8 @@ A vuejs, reactjs and angular tour component.
 + vuejs component
 + reactjs component
 + angular component
++ highlight target element
++ scroll to target
 
 #### install
 
@@ -94,13 +96,15 @@ type TourData = {
 };
 
 type Step = {
-    left?: string;
-    right?: string;
-    top?: string;
-    bottom?: string;
+    left?: string | (() => string);
+    right?: string | (() => string);
+    top?: string | (() => string);
+    bottom?: string | (() => string);
     direction: "left" | "right" | "top" | "bottom";
     content: string;
     next: string;
+    scrollTop?: number;
+    targetElementId?: string;
 };
 ```
 

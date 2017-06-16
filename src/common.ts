@@ -4,56 +4,52 @@ export type TourData = {
 };
 
 export type Step = {
-    left?: string;
-    right?: string;
-    top?: string;
-    bottom?: string;
+    left?: string | (() => string);
+    right?: string | (() => string);
+    top?: string | (() => string);
+    bottom?: string | (() => string);
     direction: "left" | "right" | "top" | "bottom";
     content: string;
     next: string;
     scrollTop?: number;
+    targetElementId?: string;
 };
 
-export function scrollToY(scrollTargetY = 0, speed = 2000, easing: "easeOutSine" | "easeInOutSine" | "easeInOutQuint" = "easeOutSine") {
-    const scrollY = window.scrollY || document.documentElement.scrollTop;
-    let currentTime = 0;
-    const time = Math.max(.1, Math.min(Math.abs(scrollY - scrollTargetY) / speed, 0.8));
-    const easingEquations: { [easing: string]: (pos: number) => number } = {
-        easeOutSine: (pos: number) => {
-            return Math.sin(pos * (Math.PI / 2));
-        },
-        easeInOutSine: (pos: number) => {
-            return (-0.5 * (Math.cos(Math.PI * pos) - 1));
-        },
-        easeInOutQuint: (pos: number) => {
-            pos /= 0.5;
-            if (pos < 1) {
-                return 0.5 * Math.pow(pos, 5);
-            }
-            return 0.5 * (Math.pow((pos - 2), 5) + 2);
-        },
-    };
+export function getPosition(position?: string | (() => string)) {
+    if (typeof position === "string") {
+        return position;
+    }
+    if (typeof position === "function") {
+        return position();
+    }
+    return undefined;
+}
 
-    function tick() {
-        currentTime += 1 / 60;
+export function getStepPosition(step: Step | null) {
+    return step ? {
+        left: getPosition(step.left),
+        right: getPosition(step.right),
+        top: getPosition(step.top),
+        bottom: getPosition(step.bottom),
+    } : {};
+}
 
-        const p = currentTime / time;
-        const t = easingEquations[easing](p);
-
-        if (p < 1) {
-            (window.requestAnimationFrame ||
-                window.webkitRequestAnimationFrame ||
-                (window as any).mozRequestAnimationFrame ||
-                (callback => {
-                    window.setTimeout(callback, 1000 / 60);
-                })
-            )(tick);
-
-            window.scrollTo(0, scrollY + ((scrollTargetY - scrollY) * t));
-        } else {
-            window.scrollTo(0, scrollTargetY);
+export function highlight(step: Step) {
+    if (step.targetElementId) {
+        const target = document.getElementById(step.targetElementId);
+        if (target) {
+            target.classList.add("tour-highlight");
         }
     }
+}
 
-    tick();
+export function unhighlight(steps: Step[]) {
+    for (const step of steps) {
+        if (step.targetElementId) {
+            const target = document.getElementById(step.targetElementId);
+            if (target) {
+                target.classList.remove("tour-highlight");
+            }
+        }
+    }
 }

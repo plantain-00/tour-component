@@ -15,10 +15,23 @@ export class TourComponent {
     update = new EventEmitter();
 
     get step() {
-        return (this.index < this.data.steps.length && this.index >= 0) ? this.data.steps[this.index] : null;
+        const step = (this.index < this.data.steps.length && this.index >= 0) ? this.data.steps[this.index] : null;
+        common.unhighlight(this.data.steps);
+        if (step) {
+            common.highlight(step);
+            if (typeof step.scrollTop === "number") {
+                window.scrollTo(0, step.scrollTop);
+            }
+        }
+        return step;
+
     }
     get arrowClassName() {
         return this.step ? `tour-arrow tt-${this.step.direction}` : "tour-arrow";
+    }
+
+    getPosition(position?: string | (() => string)) {
+        return common.getPosition(position);
     }
 
     next() {

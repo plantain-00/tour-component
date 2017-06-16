@@ -1,11 +1,11 @@
 {
   "name": "tour-component",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A vuejs, reactjs and angular tour component.",
   "main": "index.js",
   "scripts": {
     "tsc": "tsc -p src && tsc -p demo",
-    "tslint": "tslint \"src/**/*.ts\" \"src/**/*.tsx\"",
+    "tslint": "tslint \"src/**/*.ts\" \"src/**/*.tsx\" \"demo/**/*.ts\" \"demo/**/*.tsx\"",
     "rev-static": "rev-static --config demo/rev-static.config.js",
     "lessc": "lessc src/tour.less > dist/tour.css",
     "stylelint": "stylelint \"src/**/*.less\"",

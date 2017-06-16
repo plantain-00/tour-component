@@ -1,9 +1,9 @@
 <div class="tour-tip"
     *ngIf="step"
-    [style.left]="step.left"
-    [style.right]="step.right"
-    [style.top]="step.top"
-    [style.bottom]="step.bottom">
+    [style.left]="getPosition(step.left)"
+    [style.right]="getPosition(step.right)"
+    [style.top]="getPosition(step.top)"
+    [style.bottom]="getPosition(step.bottom)">
     <span [class]="arrowClassName"></span>
     <div class="tour-content-wrapper">
         <p>{{step.content}}</p>

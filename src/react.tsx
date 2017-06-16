@@ -7,18 +7,23 @@ export class Tour extends React.PureComponent<{
     update: (index: number) => void;
 }, {}> {
     get step() {
-        return (this.props.index < this.props.data.steps.length && this.props.index >= 0) ? this.props.data.steps[this.props.index] : null;
+        const step = (this.props.index < this.props.data.steps.length && this.props.index >= 0) ? this.props.data.steps[this.props.index] : null;
+        this.setState({}, () => {
+            common.unhighlight(this.props.data.steps);
+            if (step) {
+                common.highlight(step);
+                if (typeof step.scrollTop === "number") {
+                    window.scrollTo(0, step.scrollTop);
+                }
+            }
+        });
+        return step;
     }
     get arrowClassName() {
         return this.step ? `tour-arrow tt-${this.step.direction}` : "tour-arrow";
     }
     get position() {
-        return this.step ? {
-            left: this.step.left,
-            right: this.step.right,
-            top: this.step.top,
-            bottom: this.step.bottom,
-        } : {};
+        return common.getStepPosition(this.step);
     }
 
     next() {
