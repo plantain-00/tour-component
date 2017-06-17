@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import "../../dist/vue";
-import { data, index } from "../common";
+import { data } from "../common";
 
 @Component({
     template: `
@@ -9,7 +9,7 @@ import { data, index } from "../common";
         <a href="https://github.com/plantain-00/tour-component/tree/master/demo/vue/index.ts" target="_blank">the source code of the demo</a>
         <br/>
         <tour :data="data"
-            :index="index"
+            v-if="tourIsVisible"
             @update="update($event)">
         </tour>
         <button @click="deleteValue()">delete the value in localstorage</button>
@@ -22,7 +22,10 @@ import { data, index } from "../common";
 })
 class App extends Vue {
     data = data;
-    index = index;
+
+    get tourIsVisible() {
+        return this.data.index >= 0 && this.data.index < this.data.steps.length;
+    }
 
     deleteValue() {
         localStorage.removeItem(data.localStorageKey);
@@ -30,7 +33,7 @@ class App extends Vue {
     }
 
     update(index: number) {
-        this.index = index;
+        this.data.index = index;
     }
 }
 

@@ -9,7 +9,7 @@ enableProdMode();
 
 import { Component } from "@angular/core";
 
-import { data, index } from "../common";
+import { data } from "../common";
 
 @Component({
     selector: "app",
@@ -18,7 +18,7 @@ import { data, index } from "../common";
         <a href="https://github.com/plantain-00/tour-component/tree/master/demo/angular/index.ts" target="_blank">the source code of the demo</a>
         <br/>
         <tour [data]="data"
-            [index]="index"
+             *ngIf="tourIsVisible"
             (update)="update($event)">
         </tour>
         <button (click)="deleteValue()">delete the value in localstorage</button>
@@ -31,7 +31,10 @@ import { data, index } from "../common";
 })
 export class MainComponent {
     data = data;
-    index = index;
+
+    get tourIsVisible() {
+        return this.data.index >= 0 && this.data.index < this.data.steps.length;
+    }
 
     deleteValue() {
         localStorage.removeItem(data.localStorageKey);
@@ -39,7 +42,7 @@ export class MainComponent {
     }
 
     update(index: number) {
-        this.index = index;
+        this.data.index = index;
     }
 }
 

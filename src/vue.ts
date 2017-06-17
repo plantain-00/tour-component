@@ -5,24 +5,14 @@ import { srcVueTemplateHtml } from "./vue-variables";
 
 @Component({
     template: srcVueTemplateHtml,
-    props: ["data", "index"],
+    props: ["data"],
 })
 class Tour extends Vue {
     data: common.TourData;
-    index: number;
+    index = 0;
 
     get step() {
-        const step = (this.index < this.data.steps.length && this.index >= 0) ? this.data.steps[this.index] : null;
-        Vue.nextTick(() => {
-            common.unhighlight(this.data.steps);
-            if (step) {
-                common.highlight(step);
-                if (typeof step.scrollTop === "number") {
-                    window.scrollTo(0, step.scrollTop);
-                }
-            }
-        });
-        return step;
+        return (this.index < this.data.steps.length && this.index >= 0) ? this.data.steps[this.index] : null;
     }
     get arrowClassName() {
         return this.step ? `tour-arrow tt-${this.step.direction}` : "tour-arrow";
@@ -31,15 +21,37 @@ class Tour extends Vue {
         return common.getStepPosition(this.step);
     }
 
+    beforeMount() {
+        this.index = this.data.index;
+    }
+
+    mounted() {
+        this.highlight();
+    }
+
+    highlight() {
+        common.unhighlight(this.data.steps);
+        if (this.step) {
+            common.highlight(this.step);
+            if (typeof this.step.scrollTop === "number") {
+                window.scrollTo(0, this.step.scrollTop);
+            }
+        }
+    }
+
     next() {
-        this.$emit("update", this.index + 1);
-        if (this.index + 1 >= this.data.steps.length) {
+        this.index++;
+        this.$emit("update", this.index);
+        this.highlight();
+        if (this.index >= this.data.steps.length) {
             this.close();
         }
     }
 
     close() {
-        this.$emit("update", -1);
+        this.index = -1;
+        this.$emit("update", this.index);
+        this.highlight();
         if (this.data.localStorageKey) {
             localStorage.setItem(this.data.localStorageKey, "1");
         }

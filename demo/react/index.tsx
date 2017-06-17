@@ -1,11 +1,14 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Tour } from "../../dist/react";
-import { data, index } from "../common";
+import { data } from "../common";
 
 class Main extends React.Component<{}, {}> {
     data = data;
-    index = index;
+
+    get tourIsVisible() {
+        return this.data.index >= 0 && this.data.index < this.data.steps.length;
+    }
 
     deleteValue() {
         localStorage.removeItem(data.localStorageKey);
@@ -13,19 +16,21 @@ class Main extends React.Component<{}, {}> {
     }
 
     update(index: number) {
-        this.index = index;
-        this.setState({ index: this.index });
+        this.data.index = index;
+        this.setState({ data: this.data });
     }
 
     render() {
+        const tour = this.tourIsVisible ? (
+            <Tour data={this.data}
+                update={e => this.update(e)}>
+            </Tour>
+        ) : null;
         return (
             <div>
                 <a href="https://github.com/plantain-00/tour-component/tree/master/demo/react/index.tsx" target="_blank">the source code of the demo</a>
                 <br />
-                <Tour data={this.data}
-                    index={this.index}
-                    update={e => this.update(e)}>
-                </Tour>
+                {tour}
                 <button onClick={e => this.deleteValue()}>delete the value in localstorage</button>
                 <div id="step_1" style={{ position: "absolute", left: "10px", top: "210px", width: "200px", height: "100px", lineHeight: "100px", textAlign: "center" }}>step 1 target</div>
                 <div id="step_2" style={{ position: "absolute", left: "310px", top: "10px", width: "200px", height: "100px", lineHeight: "100px", textAlign: "center" }}>step 2 target</div>

@@ -8,6 +8,5 @@ export const data: common.TourData = {
         { right: () => "300px", top: "800px", direction: "right", content: "step 4", next: "done", scrollTop: 900, targetElementId: "step_4" },
     ],
     localStorageKey: "tour-test",
+    index: localStorage.getItem("tour-test") ? -1 : 0,
 };
-
-export const index = localStorage.getItem(data.localStorageKey) ? -1 : 0;

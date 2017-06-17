@@ -9,25 +9,34 @@ import { srcAngularTemplateHtml } from "./angular-variables";
 export class TourComponent {
     @Input()
     data: common.TourData;
-    @Input()
-    index: number;
     @Output()
     update = new EventEmitter();
 
-    get step() {
-        const step = (this.index < this.data.steps.length && this.index >= 0) ? this.data.steps[this.index] : null;
-        common.unhighlight(this.data.steps);
-        if (step) {
-            common.highlight(step);
-            if (typeof step.scrollTop === "number") {
-                window.scrollTo(0, step.scrollTop);
-            }
-        }
-        return step;
+    index = 0;
 
+    get step() {
+        return (this.index < this.data.steps.length && this.index >= 0) ? this.data.steps[this.index] : null;
     }
     get arrowClassName() {
         return this.step ? `tour-arrow tt-${this.step.direction}` : "tour-arrow";
+    }
+
+    ngOnInit() {
+        this.index = this.data.index;
+    }
+
+    ngAfterViewInit() {
+        this.highlight();
+    }
+
+    highlight() {
+        common.unhighlight(this.data.steps);
+        if (this.step) {
+            common.highlight(this.step);
+            if (typeof this.step.scrollTop === "number") {
+                window.scrollTo(0, this.step.scrollTop);
+            }
+        }
     }
 
     getPosition(position?: string | (() => string)) {
@@ -35,14 +44,18 @@ export class TourComponent {
     }
 
     next() {
-        this.update.emit(this.index + 1);
-        if (this.index + 1 >= this.data.steps.length) {
+        this.index++;
+        this.update.emit(this.index);
+        this.highlight();
+        if (this.index >= this.data.steps.length) {
             this.close();
         }
     }
 
     close() {
-        this.update.emit(-1);
+        this.index = -1;
+        this.update.emit(this.index);
+        this.highlight();
         if (this.data.localStorageKey) {
             localStorage.setItem(this.data.localStorageKey, "1");
         }
