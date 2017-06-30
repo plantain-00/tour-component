@@ -15,8 +15,10 @@
     "clean-rev": "rimraf rimraf demo/**/index.bundle-*.js demo/*.bundle-*.css",
     "file2variable": "file2variable-cli src/vue.template.html -o src/vue-variables.ts --html-minify && file2variable-cli src/angular.template.html -o src/angular-variables.ts --html-minify",
     "build": "npm run clean-rev && npm run clean && npm run file2variable && npm run tsc && npm run lessc && npm run cleancss && npm run cleancss-demo && npm run webpack && npm run rev-static",
-    "lint": "npm run tslint && npm run stylelint",
-    "webpack": "webpack --config demo/webpack.config.js"
+    "lint": "npm run tslint && npm run stylelint && npm run standard",
+    "webpack": "webpack --config demo/webpack.config.js",
+    "standard": "standard \"**/*.config.js\"",
+    "fix": "standard --fix \"**/*.config.js\""
   },
   "repository": {
     "type": "git",
@@ -47,6 +49,7 @@
     "rev-static": "2.4.2",
     "rimraf": "2.6.1",
     "rxjs": "5.4.0",
+    "standard": "10.0.2",
     "stylelint": "7.11.0",
     "stylelint-config-standard": "16.0.0",
     "tslint": "5.4.3",
