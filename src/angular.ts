@@ -1,10 +1,10 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 import * as common from "./common";
-import { srcAngularTemplateHtml } from "./angular-variables";
+import { angularTemplateHtml } from "./angular-variables";
 
 @Component({
     selector: "tour",
-    template: srcAngularTemplateHtml,
+    template: angularTemplateHtml,
 })
 export class TourComponent {
     @Input()

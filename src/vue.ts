@@ -1,10 +1,10 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import * as common from "./common";
-import { srcVueTemplateHtml } from "./vue-variables";
+import { vueTemplateHtml } from "./vue-variables";
 
 @Component({
-    template: srcVueTemplateHtml,
+    template: vueTemplateHtml,
     props: ["data"],
 })
 class Tour extends Vue {
