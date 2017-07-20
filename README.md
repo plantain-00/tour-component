@@ -22,7 +22,7 @@ A vuejs, reactjs and angular tour component.
 #### link css
 
 ```html
-<link rel="stylesheet" href="./node_modules/tour-component/dist/tour.min.css" />
+<link rel="stylesheet" href="./node_modules/tour-component/tour.min.css" />
 ```
 
 #### vuejs component demo
@@ -30,7 +30,7 @@ A vuejs, reactjs and angular tour component.
 `npm i vue vue-class-component`
 
 ```ts
-import "tour-component/dist/vue";
+import "tour-component/vue";
 ```
 
 ```html
@@ -44,7 +44,7 @@ the online demo: https://plantain-00.github.io/tour-component/demo/vue/index.htm
 #### reactjs component demo
 
 ```ts
-import { Tour } from "tour-component/dist/react";
+import { Tour } from "tour-component/react";
 ```
 
 ```jsx
@@ -58,7 +58,7 @@ the online demo: https://plantain-00.github.io/tour-component/demo/react/index.h
 #### angular component demo
 
 ```ts
-import { TourComponent } from "tour-component/dist/angular";
+import { TourComponent } from "tour-component/angular";
 
 @NgModule({
     imports: [BrowserModule, FormsModule],
@@ -106,6 +106,14 @@ type Step = {
 ```
 
 #### change log
+
+```ts
+// v4
+import "tour-component/vue";
+
+// v3
+import "tour-component/dist/vue";
+```
 
 ```
 // v2 to v3
