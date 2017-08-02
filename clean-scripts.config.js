@@ -9,7 +9,7 @@ module.exports = {
     `lessc src/tour.less > dist/tour.css`,
     `cleancss -o dist/tour.min.css dist/tour.css`,
     `cleancss -o demo/index.bundle.css dist/tour.min.css ./node_modules/github-fork-ribbon-css/gh-fork-ribbon.css`,
-    `webpack --config demo/webpack.config.js`,
+    `webpack --display-modules --config demo/webpack.config.js`,
     `rev-static --config demo/rev-static.config.js`
   ],
   lint: [
