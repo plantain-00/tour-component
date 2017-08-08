@@ -49,11 +49,11 @@ export class MainComponent {
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
-import { TourComponent } from "../../dist/angular";
+import { TourModule } from "../../dist/angular";
 
 @NgModule({
-    imports: [BrowserModule, FormsModule],
-    declarations: [MainComponent, TourComponent],
+    imports: [BrowserModule, FormsModule, TourModule],
+    declarations: [MainComponent],
     bootstrap: [MainComponent],
 })
 class MainModule { }

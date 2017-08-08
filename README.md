@@ -59,11 +59,11 @@ the online demo: https://plantain-00.github.io/tour-component/demo/react/index.h
 #### angular component demo
 
 ```ts
-import { TourComponent } from "tour-component/angular";
+import { TourModule } from "tour-component/angular";
 
 @NgModule({
-    imports: [BrowserModule, FormsModule],
-    declarations: [MainComponent, TourComponent],
+    imports: [BrowserModule, FormsModule, TourModule],
+    declarations: [MainComponent],
     bootstrap: [MainComponent],
 })
 class MainModule { }

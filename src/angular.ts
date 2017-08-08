@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, EventEmitter, NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 import * as common from "./common";
 export * from "./common";
 import { angularTemplateHtml } from "./angular-variables";
@@ -62,3 +63,16 @@ export class TourComponent {
         }
     }
 }
+
+@NgModule({
+    declarations: [
+        TourComponent,
+    ],
+    imports: [
+        CommonModule,
+    ],
+    exports: [
+        TourComponent,
+    ],
+})
+export class TourModule { }
