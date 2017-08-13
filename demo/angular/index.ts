@@ -29,7 +29,7 @@ import { data } from "../common";
     </div>
     `,
 })
-export class MainComponent {
+class MainComponent {
     data = data;
 
     get tourIsVisible() {

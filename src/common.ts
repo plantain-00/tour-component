@@ -4,6 +4,9 @@ export type TourData = {
     index: number;
 };
 
+/**
+ * @public
+ */
 export type Step = {
     left?: string | (() => string);
     right?: string | (() => string);

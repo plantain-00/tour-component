@@ -4,6 +4,9 @@ import * as common from "./common";
 export * from "./common";
 import { angularTemplateHtml } from "./angular-variables";
 
+/**
+ * @public
+ */
 @Component({
     selector: "tour",
     template: angularTemplateHtml,
@@ -64,6 +67,9 @@ export class TourComponent {
     }
 }
 
+/**
+ * @public
+ */
 @NgModule({
     declarations: [
         TourComponent,
