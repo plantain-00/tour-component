@@ -10,7 +10,7 @@ import { vueTemplateHtml } from "./vue-variables";
 })
 class Tour extends Vue {
     data: common.TourData;
-    index = 0;
+    private index = 0;
 
     get step() {
         return (this.index < this.data.steps.length && this.index >= 0) ? this.data.steps[this.index] : null;
@@ -30,16 +30,6 @@ class Tour extends Vue {
         this.highlight();
     }
 
-    highlight() {
-        common.unhighlight(this.data.steps);
-        if (this.step) {
-            common.highlight(this.step);
-            if (typeof this.step.scrollTop === "number") {
-                window.scrollTo(0, this.step.scrollTop);
-            }
-        }
-    }
-
     next() {
         this.index++;
         this.$emit("update", this.index);
@@ -55,6 +45,16 @@ class Tour extends Vue {
         this.highlight();
         if (this.data.localStorageKey) {
             localStorage.setItem(this.data.localStorageKey, "1");
+        }
+    }
+
+    private highlight() {
+        common.unhighlight(this.data.steps);
+        if (this.step) {
+            common.highlight(this.step);
+            if (typeof this.step.scrollTop === "number") {
+                window.scrollTo(0, this.step.scrollTop);
+            }
         }
     }
 }

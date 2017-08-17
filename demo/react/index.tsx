@@ -4,20 +4,10 @@ import { Tour } from "../../dist/react";
 import { data } from "../common";
 
 class Main extends React.Component<{}, {}> {
-    data = data;
+    private data = data;
 
-    get tourIsVisible() {
+    private get tourIsVisible() {
         return this.data.index >= 0 && this.data.index < this.data.steps.length;
-    }
-
-    deleteValue() {
-        localStorage.removeItem(data.localStorageKey);
-        this.update(0);
-    }
-
-    update(index: number) {
-        this.data.index = index;
-        this.setState({ data: this.data });
     }
 
     render() {
@@ -38,6 +28,16 @@ class Main extends React.Component<{}, {}> {
                 <div id="step_4" style={{ position: "absolute", right: "430px", top: "800px", width: "200px", height: "100px", lineHeight: "100px", textAlign: "center" }}>step 4 target</div>
             </div>
         );
+    }
+
+    private deleteValue() {
+        localStorage.removeItem(data.localStorageKey);
+        this.update(0);
+    }
+
+    private update(index: number) {
+        this.data.index = index;
+        this.setState({ data: this.data });
     }
 }
 

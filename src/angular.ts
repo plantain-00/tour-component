@@ -17,7 +17,7 @@ export class TourComponent {
     @Output()
     update = new EventEmitter();
 
-    index = 0;
+    private index = 0;
 
     get step() {
         return (this.index < this.data.steps.length && this.index >= 0) ? this.data.steps[this.index] : null;
@@ -32,16 +32,6 @@ export class TourComponent {
 
     ngAfterViewInit() {
         this.highlight();
-    }
-
-    highlight() {
-        common.unhighlight(this.data.steps);
-        if (this.step) {
-            common.highlight(this.step);
-            if (typeof this.step.scrollTop === "number") {
-                window.scrollTo(0, this.step.scrollTop);
-            }
-        }
     }
 
     getPosition(position?: string | (() => string)) {
@@ -63,6 +53,16 @@ export class TourComponent {
         this.highlight();
         if (this.data.localStorageKey) {
             localStorage.setItem(this.data.localStorageKey, "1");
+        }
+    }
+
+    private highlight() {
+        common.unhighlight(this.data.steps);
+        if (this.step) {
+            common.highlight(this.step);
+            if (typeof this.step.scrollTop === "number") {
+                window.scrollTo(0, this.step.scrollTop);
+            }
         }
     }
 }

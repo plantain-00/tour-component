@@ -9,15 +9,15 @@ export class Tour extends React.PureComponent<{
     data: common.TourData;
     update: (index: number) => void;
 }, {}> {
-    index = 0;
+    private index = 0;
 
-    get step() {
+    private get step() {
         return (this.props.data.index < this.props.data.steps.length && this.props.data.index >= 0) ? this.props.data.steps[this.props.data.index] : null;
     }
-    get arrowClassName() {
+    private get arrowClassName() {
         return this.step ? `tour-arrow tt-${this.step.direction}` : "tour-arrow";
     }
-    get position() {
+    private get position() {
         return common.getStepPosition(this.step);
     }
 
@@ -27,36 +27,6 @@ export class Tour extends React.PureComponent<{
 
     componentDidMount() {
         this.highlight();
-    }
-
-    highlight() {
-        common.unhighlight(this.props.data.steps);
-        if (this.step) {
-            common.highlight(this.step);
-            if (typeof this.step.scrollTop === "number") {
-                window.scrollTo(0, this.step.scrollTop);
-            }
-        }
-    }
-
-    next() {
-        this.index++;
-        this.setState({ index: this.index });
-        this.props.update(this.index);
-        this.highlight();
-        if (this.index >= this.props.data.steps.length) {
-            this.close();
-        }
-    }
-
-    close() {
-        this.index = -1;
-        this.setState({ index: this.index });
-        this.props.update(this.index);
-        this.highlight();
-        if (this.props.data.localStorageKey) {
-            localStorage.setItem(this.props.data.localStorageKey, "1");
-        }
     }
 
     render() {
@@ -70,5 +40,35 @@ export class Tour extends React.PureComponent<{
                 </div>
             </div>
         ) : null;
+    }
+
+    private highlight() {
+        common.unhighlight(this.props.data.steps);
+        if (this.step) {
+            common.highlight(this.step);
+            if (typeof this.step.scrollTop === "number") {
+                window.scrollTo(0, this.step.scrollTop);
+            }
+        }
+    }
+
+    private next() {
+        this.index++;
+        this.setState({ index: this.index });
+        this.props.update(this.index);
+        this.highlight();
+        if (this.index >= this.props.data.steps.length) {
+            this.close();
+        }
+    }
+
+    private close() {
+        this.index = -1;
+        this.setState({ index: this.index });
+        this.props.update(this.index);
+        this.highlight();
+        if (this.props.data.localStorageKey) {
+            localStorage.setItem(this.props.data.localStorageKey, "1");
+        }
     }
 }
