@@ -18,7 +18,8 @@ module.exports = {
         `webpack --display-modules --config demo/webpack.config.js`
       ],
       css: [
-        `lessc src/tour.less > dist/tour.css`,
+        `lessc src/tour.less > src/tour.css`,
+        `postcss src/tour.css -o dist/tour.css`,
         `cleancss -o dist/tour.min.css dist/tour.css`,
         `cleancss -o demo/index.bundle.css dist/tour.min.css ./node_modules/github-fork-ribbon-css/gh-fork-ribbon.css`
       ],
