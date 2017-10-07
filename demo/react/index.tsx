@@ -41,4 +41,4 @@ class Main extends React.Component<{}, {}> {
     }
 }
 
-ReactDOM.render(<Main /> as any, document.getElementById("container"));
+ReactDOM.render(<Main />, document.getElementById("container"));
