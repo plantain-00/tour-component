@@ -1,5 +1,6 @@
 const childProcess = require('child_process')
 const util = require('util')
+const { Service } = require('clean-scripts')
 
 const execAsync = util.promisify(childProcess.exec)
 
@@ -25,26 +26,7 @@ module.exports = {
       ],
       clean: `rimraf rimraf demo/**/index.bundle-*.js demo/*.bundle-*.css`
     },
-    `rev-static --config demo/rev-static.config.js`,
-    async () => {
-      const { createServer } = require('http-server')
-      const puppeteer = require('puppeteer')
-      const fs = require('fs')
-      const beautify = require('js-beautify').html
-      const server = createServer()
-      server.listen(8000)
-      const browser = await puppeteer.launch()
-      const page = await browser.newPage()
-      await page.emulate({ viewport: { width: 1440, height: 900 }, userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36' })
-      for (const type of ['vue', 'react', 'angular']) {
-        await page.goto(`http://localhost:8000/demo/${type}`)
-        await page.screenshot({ path: `demo/${type}/screenshot.png`, fullPage: true })
-        const content = await page.content()
-        fs.writeFileSync(`demo/${type}/screenshot-src.html`, beautify(content))
-      }
-      server.close()
-      browser.close()
-    }
+    `rev-static --config demo/rev-static.config.js`
   ],
   lint: {
     ts: `tslint "src/**/*.ts" "src/**/*.tsx" "demo/**/*.ts" "demo/**/*.tsx"`,
@@ -55,7 +37,6 @@ module.exports = {
   test: [
     'tsc -p spec',
     'karma start spec/karma.config.js',
-    'git checkout "demo/**/screenshot.png"',
     async () => {
       const { stdout } = await execAsync('git status -s')
       if (stdout) {
@@ -78,5 +59,10 @@ module.exports = {
     webpack: `webpack --config demo/webpack.config.js --watch`,
     less: `watch-then-execute "src/tour.less" --script "clean-scripts build[2].css"`,
     rev: `rev-static --config demo/rev-static.config.js --watch`
-  }
+  },
+  screenshot: [
+    new Service(`http-server -p 8000`),
+    `tsc -p screenshots`,
+    `node screenshots/index.js`
+  ]
 }
