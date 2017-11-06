@@ -1,4 +1,5 @@
-const { Service, execAsync } = require('clean-scripts')
+const { Service, execAsync, executeScriptAsync } = require('clean-scripts')
+const { watch } = require('watch-then-execute')
 
 const tsFiles = `"src/**/*.ts" "src/**/*.tsx" "spec/**/*.ts" "demo/**/*.ts" "demo/**/*.tsx" "screenshots/**/*.ts"`
 const lessFiles = `"src/**/*.less"`
@@ -6,10 +7,19 @@ const jsFiles = `"*.config.js" "demo/*.config.js" "spec/**/*.config.js"`
 
 const vueTemplateCommand = `file2variable-cli src/vue.template.html -o src/vue-variables.ts --html-minify --base src`
 const angularTemplateCommand = `file2variable-cli src/angular.template.html -o src/angular-variables.ts --html-minify --base src`
-const ngcSrcCommand = `ngc -p src`
+const ngcSrcCommand = [
+  `tsc -p src`,
+  `ngc -p src/tsconfig.aot.json`
+]
 const tscDemoCommand = `tsc -p demo`
 const webpackCommand = `webpack --display-modules --config demo/webpack.config.js`
 const revStaticCommand = `rev-static --config demo/rev-static.config.js`
+const cssCommand = [
+  `lessc src/tour.less > src/tour.css`,
+  `postcss src/tour.css -o dist/tour.css`,
+  `cleancss -o dist/tour.min.css dist/tour.css`,
+  `cleancss -o demo/index.bundle.css dist/tour.min.css ./node_modules/github-fork-ribbon-css/gh-fork-ribbon.css`
+]
 
 module.exports = {
   build: [
@@ -25,12 +35,7 @@ module.exports = {
         tscDemoCommand,
         webpackCommand
       ],
-      css: [
-        `lessc src/tour.less > src/tour.css`,
-        `postcss src/tour.css -o dist/tour.css`,
-        `cleancss -o dist/tour.min.css dist/tour.css`,
-        `cleancss -o demo/index.bundle.css dist/tour.min.css ./node_modules/github-fork-ribbon-css/gh-fork-ribbon.css`
-      ],
+      css: cssCommand,
       clean: `rimraf rimraf demo/**/index.bundle-*.js demo/*.bundle-*.css`
     },
     revStaticCommand
@@ -64,7 +69,7 @@ module.exports = {
     src: `${ngcSrcCommand} --watch`,
     demo: `${tscDemoCommand} --watch`,
     webpack: `${webpackCommand} --watch`,
-    less: `watch-then-execute ${lessFiles} --script "clean-scripts build[2].css"`,
+    less: () => watch(['src/**/*.less'], [], () => executeScriptAsync(cssCommand)),
     rev: `${revStaticCommand} --watch`
   },
   screenshot: [

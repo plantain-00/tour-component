@@ -1,0 +1,16 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "rootDir": "."
+    },
+    "angularCompilerOptions": {
+        "strictMetadataEmit": true,
+        "genDir": "compiled"
+    },
+    "include": [
+        "angular-variables.ts",
+        "angular.ts",
+        "common.ts",
+        "locales/"
+    ]
+}
