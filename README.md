@@ -61,6 +61,9 @@ the online demo: https://plantain-00.github.io/tour-component/demo/react/index.h
 ```ts
 import { TourModule } from "tour-component/angular";
 
+// for angular AOT:
+// import { TourModule } from "tour-component/aot/angular";
+
 @NgModule({
     imports: [BrowserModule, FormsModule, TourModule],
     declarations: [MainComponent],
@@ -107,6 +110,14 @@ type Step = {
 ```
 
 #### change log
+
+```ts
+// v4 angular AOT:
+import { TourModule } from "tour-component/angular";
+
+// v5 angular AOT:
+import { TourModule } from "tour-component/aot/angular";
+```
 
 ```ts
 // v4

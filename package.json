@@ -1,6 +1,6 @@
 {
   "name": "tour-component",
-  "version": "4.1.0",
+  "version": "5.0.0",
   "description": "A vuejs, reactjs and angular tour component.",
   "main": "index.js",
   "scripts": {
