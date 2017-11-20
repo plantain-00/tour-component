@@ -1,8 +1,7 @@
 {
   "name": "tour-component",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "A vuejs, reactjs and angular tour component.",
-  "main": "index.js",
   "scripts": {
     "build": "clean-scripts build",
     "lint": "clean-scripts lint",
