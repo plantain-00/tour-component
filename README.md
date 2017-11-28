@@ -16,22 +16,18 @@ A vuejs, reactjs and angular tour component.
 + highlight target element
 + scroll to target
 
-#### install
-
-`npm i tour-component`
-
 #### link css
 
 ```html
-<link rel="stylesheet" href="./node_modules/tour-component/tour.min.css" />
+<link rel="stylesheet" href="./node_modules/tour-component/dist/tour.min.css" />
 ```
 
-#### vuejs component demo
+#### vuejs component
 
-`npm i vue vue-class-component`
+`npm i vue-tour-component`
 
 ```ts
-import "tour-component/vue";
+import "vue-tour-component";
 ```
 
 ```html
@@ -40,12 +36,14 @@ import "tour-component/vue";
 </tour>
 ```
 
-the online demo: https://plantain-00.github.io/tour-component/demo/vue/index.html
+the online demo: https://plantain-00.github.io/tour-component/packages/vue/demo
 
-#### reactjs component demo
+#### reactjs component
+
+`npm i react-tour-component`
 
 ```ts
-import { Tour } from "tour-component/react";
+import { Tour } from "react-tour-component";
 ```
 
 ```jsx
@@ -54,15 +52,14 @@ import { Tour } from "tour-component/react";
 </Tour>
 ```
 
-the online demo: https://plantain-00.github.io/tour-component/demo/react/index.html
+the online demo: https://plantain-00.github.io/tour-component/packages/react/demo
 
-#### angular component demo
+#### angular component
+
+`npm i angular-tour-component`
 
 ```ts
-import { TourModule } from "tour-component/angular";
-
-// for angular AOT:
-// import { TourModule } from "tour-component/aot/angular";
+import { TourModule } from "angular/tour-component";
 
 @NgModule({
     imports: [BrowserModule, FormsModule, TourModule],
@@ -78,9 +75,9 @@ class MainModule { }
 </tour>
 ```
 
-the online demo: https://plantain-00.github.io/tour-component/demo/angular/index.html
+the online demo: https://plantain-00.github.io/tour-component/packages/angular/demo/jit
 
-the AOT online demo: https://plantain-00.github.io/tour-component/demo/aot/index.html
+the AOT online demo: https://plantain-00.github.io/tour-component/packages/angular/demo/aot
 
 #### properties and events of the component
 
@@ -112,6 +109,37 @@ type Step = {
 ```
 
 #### change log
+
+```bash
+# v5
+npm i tour-component
+
+# v6
+npm i vue-tour-component
+npm i react-tour-component
+npm i angular-tour-component
+```
+
+```ts
+// v5
+import "tour-component/vue";
+import { Tour } from "tour-component/react";
+import { TourModule } from "tour-component/angular";
+
+// v6
+import "vue-tour-component";
+import { Tour } from "react-tour-component";
+import { TourModule } from "angular-tour-component";
+```
+
+```html
+// v5
+<link rel="stylesheet" href="./node_modules/tour-component/tour.min.css" />
+
+// v6
+<link rel="stylesheet" href="./node_modules/tour-component/dist/tour.min.css" />
+```
+
 
 ```ts
 // v4 angular AOT:
