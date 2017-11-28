@@ -1,3 +1,6 @@
+/**
+ * @public
+ */
 export type TourData = {
     steps: Step[],
     localStorageKey: string;
@@ -19,6 +22,9 @@ export type Step = {
     targetElementId?: string;
 };
 
+/**
+ * @public
+ */
 export function getPosition(position?: string | (() => string)) {
     if (typeof position === "string") {
         return position;
@@ -29,6 +35,9 @@ export function getPosition(position?: string | (() => string)) {
     return undefined;
 }
 
+/**
+ * @public
+ */
 export function getStepPosition(step: Step | null) {
     return step ? {
         left: getPosition(step.left),
@@ -38,6 +47,9 @@ export function getStepPosition(step: Step | null) {
     } : {};
 }
 
+/**
+ * @public
+ */
 export function highlight(step: Step) {
     if (step.targetElementId) {
         const target = document.getElementById(step.targetElementId);
@@ -47,6 +59,9 @@ export function highlight(step: Step) {
     }
 }
 
+/**
+ * @public
+ */
 export function unhighlight(steps: Step[]) {
     for (const step of steps) {
         if (step.targetElementId) {

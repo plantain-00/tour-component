@@ -1,5 +1,8 @@
 import * as common from "../dist/";
 
+/**
+ * @public
+ */
 export const data: common.TourData = {
     steps: [
         { left: "60px", top: "90px", direction: "top", content: "step 1", next: "next", targetElementId: "step_1" },

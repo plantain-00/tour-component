@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Tour } from"../dist/";
+import { Tour } from "../dist/";
 import { data } from "tour-component/demo/";
 
 class Main extends React.Component<{}, {}> {
