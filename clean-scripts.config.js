@@ -31,8 +31,6 @@ const cssCommand = [
 
 module.exports = {
   build: [
-    `rimraf dist`,
-    `mkdirp dist`,
     {
       js: [
         {
