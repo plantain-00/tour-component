@@ -6,7 +6,7 @@ import { data } from "tour-component/demo/";
     selector: "app",
     template: `
     <div>
-        <a href="https://github.com/plantain-00/tour-component/tree/master/demo/angular/index.ts" target="_blank">the source code of the demo</a>
+        <a href="https://github.com/plantain-00/tour-component/tree/master/packages/angular/demo" target="_blank">the source code of the demo</a>
         <br/>
         <tour [data]="data"
              *ngIf="tourIsVisible"

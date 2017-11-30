@@ -18,7 +18,7 @@ class Main extends React.Component<{}, {}> {
         ) : null;
         return (
             <div>
-                <a href="https://github.com/plantain-00/tour-component/tree/master/demo/react/index.tsx" target="_blank">the source code of the demo</a>
+                <a href="https://github.com/plantain-00/tour-component/tree/master/packages/react/demo" target="_blank">the source code of the demo</a>
                 <br />
                 {tour}
                 <button onClick={e => this.deleteValue()}>delete the value in localstorage</button>

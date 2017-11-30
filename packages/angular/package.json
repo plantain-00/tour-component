@@ -1,6 +1,6 @@
 {
   "name": "angular-tour-component",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "A angular tour component.",
@@ -24,7 +24,7 @@
     "@angular/platform-browser-dynamic": "5",
     "core-js": "2",
     "rxjs": "5",
-    "tour-component": "^6.0.0",
+    "tour-component": "^6.0.1",
     "zone.js": "0.8"
   }
 }
