@@ -5,10 +5,10 @@ export * from "tour-component";
 import { indexTemplateHtml } from "./variables";
 
 @Component({
-    template: indexTemplateHtml,
+    render: indexTemplateHtml,
     props: ["data"],
 })
-class Tour extends Vue {
+export class Tour extends Vue {
     data: common.TourData;
     private index = 0;
 
