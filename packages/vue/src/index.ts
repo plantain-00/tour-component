@@ -2,10 +2,11 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import * as common from "tour-component";
 export * from "tour-component";
-import { indexTemplateHtml } from "./variables";
+import { indexTemplateHtml, indexTemplateHtmlStatic } from "./variables";
 
 @Component({
     render: indexTemplateHtml,
+    staticRenderFns: indexTemplateHtmlStatic,
     props: ["data"],
 })
 export class Tour extends Vue {
