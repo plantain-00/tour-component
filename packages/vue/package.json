@@ -1,6 +1,6 @@
 {
   "name": "vue-tour-component",
-  "version": "6.1.0",
+  "version": "6.1.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "A vuejs tour component.",
@@ -17,12 +17,20 @@
     "url": "https://github.com/plantain-00/tour-component/issues"
   },
   "homepage": "https://github.com/plantain-00/tour-component#readme",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
-    "tour-component": "^6.1.0",
+    "tour-component": "^6.1.1",
     "vue": "2",
     "vue-class-component": "6"
   },
   "devDependencies": {
     "typescript": "2.6.2"
+  },
+  "peerDependencies": {
+    "tour-component": "^6.1.1",
+    "vue": "2",
+    "vue-class-component": "6"
   }
 }

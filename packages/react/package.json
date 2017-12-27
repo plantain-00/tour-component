@@ -1,6 +1,6 @@
 {
   "name": "react-tour-component",
-  "version": "6.1.0",
+  "version": "6.1.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "A reactjs tour component.",
@@ -14,6 +14,9 @@
     "url": "https://github.com/plantain-00/tour-component/issues"
   },
   "homepage": "https://github.com/plantain-00/tour-component#readme",
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@types/react": "16.0.31",
     "@types/react-dom": "16.0.3"
@@ -21,6 +24,11 @@
   "dependencies": {
     "react": "16",
     "react-dom": "16",
-    "tour-component": "^6.1.0"
+    "tour-component": "^6.1.1"
+  },
+  "peerDependencies": {
+    "react": "16",
+    "react-dom": "16",
+    "tour-component": "^6.1.1"
   }
 }
