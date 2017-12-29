@@ -1,3 +1,5 @@
+# tour-component
+
 [![Dependency Status](https://david-dm.org/plantain-00/tour-component.svg)](https://david-dm.org/plantain-00/tour-component)
 [![devDependency Status](https://david-dm.org/plantain-00/tour-component/dev-status.svg)](https://david-dm.org/plantain-00/tour-component#info=devDependencies)
 [![Build Status: Linux](https://travis-ci.org/plantain-00/tour-component.svg?branch=master)](https://travis-ci.org/plantain-00/tour-component)
@@ -5,10 +7,9 @@
 [![npm version](https://badge.fury.io/js/tour-component.svg)](https://badge.fury.io/js/tour-component)
 [![Downloads](https://img.shields.io/npm/dm/tour-component.svg)](https://www.npmjs.com/package/tour-component)
 
-# tour-component
 A vuejs, reactjs and angular tour component.
 
-#### features
+## features
 
 + vuejs component
 + reactjs component
@@ -16,13 +17,13 @@ A vuejs, reactjs and angular tour component.
 + highlight target element
 + scroll to target
 
-#### link css
+## link css
 
 ```html
 <link rel="stylesheet" href="./node_modules/tour-component/dist/tour.min.css" />
 ```
 
-#### vuejs component
+## vuejs component
 
 `npm i vue-tour-component`
 
@@ -36,9 +37,9 @@ import "vue-tour-component";
 </tour>
 ```
 
-the online demo: https://plantain-00.github.io/tour-component/packages/vue/demo
+the online demo: <https://plantain-00.github.io/tour-component/packages/vue/demo>
 
-#### reactjs component
+## reactjs component
 
 `npm i react-tour-component`
 
@@ -52,9 +53,9 @@ import { Tour } from "react-tour-component";
 </Tour>
 ```
 
-the online demo: https://plantain-00.github.io/tour-component/packages/react/demo
+the online demo: <https://plantain-00.github.io/tour-component/packages/react/demo>
 
-#### angular component
+## angular component
 
 `npm i angular-tour-component`
 
@@ -75,18 +76,18 @@ class MainModule { }
 </tour>
 ```
 
-the online demo: https://plantain-00.github.io/tour-component/packages/angular/demo/jit
+the online demo: <https://plantain-00.github.io/tour-component/packages/angular/demo/jit>
 
-the AOT online demo: https://plantain-00.github.io/tour-component/packages/angular/demo/aot
+the AOT online demo: <https://plantain-00.github.io/tour-component/packages/angular/demo/aot>
 
-#### properties and events of the component
+## properties and events of the component
 
 name | type | description
 --- | --- | ---
 data | [TourData](#tour-data-structure)[] | the data of the tour
 update | (index: number)=> void | triggered when press next or close
 
-#### tour data structure
+## tour data structure
 
 ```ts
 type TourData = {
@@ -108,7 +109,7 @@ type Step = {
 };
 ```
 
-#### change log
+## change log
 
 ```bash
 # v5
@@ -140,7 +141,6 @@ import { TourModule } from "angular-tour-component";
 <link rel="stylesheet" href="./node_modules/tour-component/dist/tour.min.css" />
 ```
 
-
 ```ts
 // v4 angular AOT:
 import { TourModule } from "tour-component/angular";
@@ -157,12 +157,12 @@ import "tour-component/vue";
 import "tour-component/dist/vue";
 ```
 
-```
+```bash
 // v2 to v3
 move `index` into `data` from as a property
 ```
 
-```
+```bash
 // v1 to v2
 move `index` out from `data` as a property
 add `update` event
