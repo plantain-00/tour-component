@@ -31,15 +31,15 @@ export class Tour extends React.PureComponent<{
 
   render () {
     return this.step ? (
-            <div className='tour-tip' style={this.position}>
-                <span className={this.arrowClassName}></span>
-                <div className='tour-content-wrapper'>
-                    <p>{this.step.content}</p>
-                    <a className='small button tour-next-tip' onClick={e => this.next()}>{this.step.next}</a>
-                    <a className='tour-close-tip' onClick={e => this.close()}>×</a>
-                </div>
-            </div>
-        ) : null
+      <div className='tour-tip' style={this.position}>
+        <span className={this.arrowClassName}></span>
+        <div className='tour-content-wrapper'>
+          <p>{this.step.content}</p>
+          <a className='small button tour-next-tip' onClick={e => this.next()}>{this.step.next}</a>
+          <a className='tour-close-tip' onClick={e => this.close()}>×</a>
+        </div>
+      </div>
+    ) : null
   }
 
   private highlight () {
