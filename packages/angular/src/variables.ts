@@ -4,5 +4,5 @@
  */
 // tslint:disable
 
-export const indexTemplateHtml = `<div class="tour-tip" *ngIf="step" [style.left]="getPosition(step.left)" [style.right]="getPosition(step.right)" [style.top]="getPosition(step.top)" [style.bottom]="getPosition(step.bottom)"><span [class]="arrowClassName"></span><div class="tour-content-wrapper"><p>{{step.content}}</p><a class="small button tour-next-tip" (click)="next()">{{step.next}}</a><a class="tour-close-tip" (click)="close()">×</a></div></div>`;
+export const indexTemplateHtml = `<div class="tour-tip" *ngIf="step" [style.left]="getPosition(step.left)" [style.right]="getPosition(step.right)" [style.top]="getPosition(step.top)" [style.bottom]="getPosition(step.bottom)"><span [class]="arrowClassName"></span><div class="tour-content-wrapper"><p>{{step.content}}</p><a class="small button tour-next-tip" (click)="next()">{{step.next}}</a><a class="tour-close-tip" (click)="close()">×</a></div></div>`
 // tslint:enable

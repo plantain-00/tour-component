@@ -12,7 +12,7 @@ import { indexTemplateHtml } from './variables'
 })
 export class TourComponent {
   @Input()
-    data: common.TourData
+    data!: common.TourData
   @Output()
     update = new EventEmitter()
 

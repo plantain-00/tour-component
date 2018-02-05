@@ -10,7 +10,7 @@ import { indexTemplateHtml, indexTemplateHtmlStatic } from './variables'
   props: ['data']
 })
 export class Tour extends Vue {
-  data: common.TourData
+  data!: common.TourData
   private index = 0
 
   get step () {
