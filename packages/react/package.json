@@ -1,6 +1,6 @@
 {
   "name": "react-tour-component",
-  "version": "6.1.1",
+  "version": "6.2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "A reactjs tour component.",
@@ -24,11 +24,11 @@
   "dependencies": {
     "react": "16",
     "react-dom": "16",
-    "tour-component": "^6.1.1"
+    "tour-component": "^6.2.0"
   },
   "peerDependencies": {
     "react": "16",
     "react-dom": "16",
-    "tour-component": "^6.1.1"
+    "tour-component": "^6.2.0"
   }
 }

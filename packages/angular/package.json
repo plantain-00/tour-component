@@ -1,6 +1,6 @@
 {
   "name": "angular-tour-component",
-  "version": "6.1.1",
+  "version": "6.2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "A angular tour component.",
@@ -21,7 +21,7 @@
     "@angular/common": "5",
     "@angular/core": "5",
     "@angular/forms": "5",
-    "tour-component": "^6.1.1"
+    "tour-component": "^6.2.0"
   },
   "devDependencies": {
     "@angular/platform-browser": "5.2.8",
@@ -34,6 +34,6 @@
     "@angular/common": "5",
     "@angular/core": "5",
     "@angular/forms": "5",
-    "tour-component": "^6.1.1"
+    "tour-component": "^6.2.0"
   }
 }
