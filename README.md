@@ -31,6 +31,14 @@ A vuejs, reactjs and angular tour component.
 import "vue-tour-component";
 ```
 
+or
+
+```html
+<script src="./node_modules/vue/dist/vue.min.js"></script>
+<script src="./node_modules/vue-class-component/dist/vue-class-component.min.js"></script>
+<script src="./node_modules/vue-tour-component/dist/vue-tour-component.min.js"></script>
+```
+
 ```html
 <tour :data="data"
     @update="update($event)">
@@ -45,6 +53,14 @@ the online demo: <https://plantain-00.github.io/tour-component/packages/vue/demo
 
 ```ts
 import { Tour } from "react-tour-component";
+```
+
+or
+
+```html
+<script src="./node_modules/react/umd/react.production.min.js"></script>
+<script src="./node_modules/react-dom/umd/react-dom.production.min.js"></script>
+<script src="./node_modules/react-tour-component/dist/react-tour-component.min.js"></script>
 ```
 
 ```jsx
