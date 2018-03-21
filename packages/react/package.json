@@ -2,6 +2,9 @@
   "name": "react-tour-component",
   "version": "6.2.0",
   "main": "dist/index.js",
+  "module": "dist/index.js",
+  "unpkg": "dist/react-tour-component.min.js",
+  "jsdelivr": "dist/react-tour-component.min.js",
   "types": "dist/index.d.ts",
   "description": "A reactjs tour component.",
   "repository": {
