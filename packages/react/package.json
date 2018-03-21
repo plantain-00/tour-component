@@ -1,6 +1,6 @@
 {
   "name": "react-tour-component",
-  "version": "6.2.0",
+  "version": "6.2.1",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "unpkg": "dist/react-tour-component.min.js",
