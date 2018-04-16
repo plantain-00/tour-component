@@ -1,0 +1,33 @@
+{
+  "name": "vue-tour-component",
+  "version": "6.2.1",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "unpkg": "dist/vue-tour-component.min.js",
+  "jsdelivr": "dist/vue-tour-component.min.js",
+  "types": "dist/index.d.ts",
+  "description": "A vuejs tour component.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plantain-00/tour-component.git"
+  },
+  "author": "York Yao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/plantain-00/tour-component/issues"
+  },
+  "homepage": "https://github.com/plantain-00/tour-component#readme",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "tour-component": "^6.2.0",
+    "vue": "2",
+    "vue-class-component": "6"
+  },
+  "peerDependencies": {
+    "tour-component": "^6.2.0",
+    "vue": "2",
+    "vue-class-component": "6"
+  }
+}
