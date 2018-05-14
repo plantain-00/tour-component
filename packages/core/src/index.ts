@@ -25,7 +25,7 @@ export type Step = {
 /**
  * @public
  */
-export function getPosition (position?: string | (() => string)) {
+export function getPosition(position?: string | (() => string)) {
   if (typeof position === 'string') {
     return position
   }
@@ -38,7 +38,7 @@ export function getPosition (position?: string | (() => string)) {
 /**
  * @public
  */
-export function getStepPosition (step: Step | null) {
+export function getStepPosition(step: Step | null) {
   return step ? {
     left: getPosition(step.left),
     right: getPosition(step.right),
@@ -50,7 +50,7 @@ export function getStepPosition (step: Step | null) {
 /**
  * @public
  */
-export function highlight (step: Step) {
+export function highlight(step: Step) {
   if (step.targetElementId) {
     const target = document.getElementById(step.targetElementId)
     if (target) {
@@ -62,7 +62,7 @@ export function highlight (step: Step) {
 /**
  * @public
  */
-export function unhighlight (steps: Step[]) {
+export function unhighlight(steps: Step[]) {
   for (const step of steps) {
     if (step.targetElementId) {
       const target = document.getElementById(step.targetElementId)

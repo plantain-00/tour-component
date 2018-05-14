@@ -11,25 +11,25 @@ export class Tour extends React.PureComponent<{
 }, {}> {
   private index = 0
 
-  private get step () {
+  private get step() {
     return (this.props.data.index < this.props.data.steps.length && this.props.data.index >= 0) ? this.props.data.steps[this.props.data.index] : null
   }
-  private get arrowClassName () {
+  private get arrowClassName() {
     return this.step ? `tour-arrow tt-${this.step.direction}` : 'tour-arrow'
   }
-  private get position () {
+  private get position() {
     return common.getStepPosition(this.step)
   }
 
-  componentWillMount () {
+  componentWillMount() {
     this.index = this.props.data.index
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.highlight()
   }
 
-  render () {
+  render() {
     return this.step ? (
       <div className='tour-tip' style={this.position}>
         <span className={this.arrowClassName}></span>
@@ -42,7 +42,7 @@ export class Tour extends React.PureComponent<{
     ) : null
   }
 
-  private highlight () {
+  private highlight() {
     common.unhighlight(this.props.data.steps)
     if (this.step) {
       common.highlight(this.step)
@@ -52,7 +52,7 @@ export class Tour extends React.PureComponent<{
     }
   }
 
-  private next () {
+  private next() {
     this.index++
     this.setState({ index: this.index })
     this.props.update(this.index)
@@ -62,7 +62,7 @@ export class Tour extends React.PureComponent<{
     }
   }
 
-  private close () {
+  private close() {
     this.index = -1
     this.setState({ index: this.index })
     this.props.update(this.index)
