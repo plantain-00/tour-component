@@ -6,11 +6,11 @@ import { data } from 'tour-component/demo/'
 class Main extends React.Component<{}, {}> {
   private data = data
 
-  private get tourIsVisible () {
+  private get tourIsVisible() {
     return this.data.index >= 0 && this.data.index < this.data.steps.length
   }
 
-  render () {
+  render() {
     const tour = this.tourIsVisible ? (
       <Tour data={this.data}
         update={e => this.update(e)}>
@@ -30,12 +30,12 @@ class Main extends React.Component<{}, {}> {
     )
   }
 
-  private deleteValue () {
+  private deleteValue() {
     localStorage.removeItem(data.localStorageKey)
     this.update(0)
   }
 
-  private update (index: number) {
+  private update(index: number) {
     this.data.index = index
     this.setState({ data: this.data })
   }

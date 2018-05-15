@@ -23,16 +23,16 @@ import { data } from 'tour-component/demo/'
 class App extends Vue {
   data = data
 
-  get tourIsVisible () {
+  get tourIsVisible() {
     return this.data.index >= 0 && this.data.index < this.data.steps.length
   }
 
-  deleteValue () {
+  deleteValue() {
     localStorage.removeItem(data.localStorageKey)
     this.update(0)
   }
 
-  update (index: number) {
+  update(index: number) {
     this.data.index = index
   }
 }

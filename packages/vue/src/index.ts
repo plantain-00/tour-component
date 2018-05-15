@@ -13,25 +13,25 @@ export class Tour extends Vue {
   data!: common.TourData
   private index = 0
 
-  get step () {
+  get step() {
     return (this.index < this.data.steps.length && this.index >= 0) ? this.data.steps[this.index] : null
   }
-  get arrowClassName () {
+  get arrowClassName() {
     return this.step ? `tour-arrow tt-${this.step.direction}` : 'tour-arrow'
   }
-  get position () {
+  get position() {
     return common.getStepPosition(this.step)
   }
 
-  beforeMount () {
+  beforeMount() {
     this.index = this.data.index
   }
 
-  mounted () {
+  mounted() {
     this.highlight()
   }
 
-  next () {
+  next() {
     this.index++
     this.$emit('update', this.index)
     this.highlight()
@@ -40,7 +40,7 @@ export class Tour extends Vue {
     }
   }
 
-  close () {
+  close() {
     this.index = -1
     this.$emit('update', this.index)
     this.highlight()
@@ -49,7 +49,7 @@ export class Tour extends Vue {
     }
   }
 
-  private highlight () {
+  private highlight() {
     common.unhighlight(this.data.steps)
     if (this.step) {
       common.highlight(this.step)
