@@ -10,12 +10,17 @@ export type TourData = {
 /**
  * @public
  */
+export type Direction = 'left' | 'right' | 'top' | 'bottom'
+
+/**
+ * @public
+ */
 export type Step = {
   left?: string | (() => string);
   right?: string | (() => string);
   top?: string | (() => string);
   bottom?: string | (() => string);
-  direction: 'left' | 'right' | 'top' | 'bottom';
+  direction: Direction;
   content: string;
   next: string;
   scrollTop?: number;
