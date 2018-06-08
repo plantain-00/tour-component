@@ -21,8 +21,8 @@
     "dist"
   ],
   "devDependencies": {
-    "@types/react": "16.3.16",
-    "@types/react-dom": "16.0.5"
+    "@types/react": "16.3.17",
+    "@types/react-dom": "16.0.6"
   },
   "dependencies": {
     "react": "16",
