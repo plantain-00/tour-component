@@ -28,10 +28,5 @@
     "react": "16",
     "react-dom": "16",
     "tour-component": "^6.3.0"
-  },
-  "peerDependencies": {
-    "react": "16",
-    "react-dom": "16",
-    "tour-component": "^6.2.0"
   }
 }

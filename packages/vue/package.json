@@ -24,10 +24,5 @@
     "tour-component": "^6.3.0",
     "vue": "2",
     "vue-class-component": "6"
-  },
-  "peerDependencies": {
-    "tour-component": "^6.2.0",
-    "vue": "2",
-    "vue-class-component": "6"
   }
 }
