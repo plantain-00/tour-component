@@ -1,6 +1,6 @@
 {
   "name": "angular-tour-component",
-  "version": "6.4.0",
+  "version": "6.4.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "A angular tour component.",
@@ -21,7 +21,7 @@
     "@angular/common": "7",
     "@angular/core": "7",
     "@angular/forms": "7",
-    "tour-component": "^6.3.0"
+    "tour-component": "^6.4.1"
   },
   "devDependencies": {
     "@angular/platform-browser": "7.0.2",
