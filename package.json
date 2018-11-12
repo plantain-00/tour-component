@@ -21,6 +21,9 @@
   "bugs": {
     "url": "https://github.com/plantain-00/tour-component/issues"
   },
+  "typeCoverage": {
+    "atLeast": 95
+  },
   "homepage": "https://github.com/plantain-00/tour-component#readme",
   "devDependencies": {
     "@angular/compiler": "7.0.3",
