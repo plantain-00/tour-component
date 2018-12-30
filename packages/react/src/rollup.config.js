@@ -4,13 +4,13 @@ import commonjs from 'rollup-plugin-commonjs'
 
 export default {
   input: 'packages/react/dist/index.js',
-  name: 'Tour',
   plugins: [
     resolve({ browser: true }),
     uglify(),
     commonjs()
   ],
   output: {
+    name: 'Tour',
     file: 'packages/react/dist/react-tour-component.min.js',
     format: 'umd'
   },
