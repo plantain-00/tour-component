@@ -6,7 +6,7 @@
 import { Tour } from "./index"
 
 // @ts-ignore
-export function indexTemplateHtml(this: Tour) {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.step)?_c('div',{staticClass:"tour-tip",style:(_vm.position)},[_c('span',{class:_vm.arrowClassName}),_vm._v(" "),_c('div',{staticClass:"tour-content-wrapper"},[_c('p',[_vm._v(_vm._s(_vm.step.content))]),_vm._v(" "),_c('a',{staticClass:"small button tour-next-tip",on:{"click":function($event){_vm.next()}}},[_vm._v(_vm._s(_vm.step.next))]),_vm._v(" "),_c('a',{staticClass:"tour-close-tip",on:{"click":function($event){_vm.close()}}},[_vm._v("×")])])]):_vm._e()}
+export function indexTemplateHtml(this: Tour) {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.step)?_c('div',{staticClass:"tour-tip",style:(_vm.position)},[_c('span',{class:_vm.arrowClassName}),_vm._v(" "),_c('div',{staticClass:"tour-content-wrapper"},[_c('p',[_vm._v(_vm._s(_vm.step.content))]),_vm._v(" "),_c('a',{staticClass:"small button tour-next-tip",on:{"click":function($event){return _vm.next()}}},[_vm._v(_vm._s(_vm.step.next))]),_vm._v(" "),_c('a',{staticClass:"tour-close-tip",on:{"click":function($event){return _vm.close()}}},[_vm._v("×")])])]):_vm._e()}
 // @ts-ignore
 export var indexTemplateHtmlStatic = [  ]
 // tslint:enable
