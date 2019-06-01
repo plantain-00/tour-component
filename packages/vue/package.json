@@ -1,6 +1,6 @@
 {
   "name": "vue-tour-component",
-  "version": "6.4.1",
+  "version": "6.5.0",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "unpkg": "dist/vue-tour-component.min.js",

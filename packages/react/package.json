@@ -1,6 +1,6 @@
 {
   "name": "react-tour-component",
-  "version": "6.4.1",
+  "version": "6.5.0",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "unpkg": "dist/react-tour-component.min.js",
@@ -21,7 +21,7 @@
     "dist"
   ],
   "devDependencies": {
-    "@types/react": "16.8.18",
+    "@types/react": "16.8.19",
     "@types/react-dom": "16.8.4"
   },
   "dependencies": {
