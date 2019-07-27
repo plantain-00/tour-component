@@ -22,7 +22,7 @@
   ],
   "devDependencies": {
     "@types/react": "16.8.23",
-    "@types/react-dom": "16.8.4"
+    "@types/react-dom": "16.8.5"
   },
   "dependencies": {
     "react": "16",
