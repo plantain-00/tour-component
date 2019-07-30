@@ -1,7 +1,7 @@
 /**
  * @public
  */
-export type TourData = {
+export interface TourData {
   steps: Step[],
   localStorageKey: string;
   index: number;
@@ -15,7 +15,7 @@ export type Direction = 'left' | 'right' | 'top' | 'bottom'
 /**
  * @public
  */
-export type Step = {
+export interface Step {
   left?: string | (() => string);
   right?: string | (() => string);
   top?: string | (() => string);

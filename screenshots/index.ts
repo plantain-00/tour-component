@@ -19,23 +19,31 @@ import puppeteer from 'puppeteer'
 
     for (let i = 1; i <= 4; i++) {
       const next = await page.$('.tour-next-tip')
-      await next!.click()
+      if (next) {
+        await next.click()
+      }
       await page.waitFor(100)
       await page.screenshot({ path: `screenshots/${type}-next-${i}.png` })
     }
 
     const cleanLocalstorage = await page.$('button')
-    await cleanLocalstorage!.click()
+    if (cleanLocalstorage) {
+      await cleanLocalstorage.click()
+    }
     await page.waitFor(100)
     await page.screenshot({ path: `screenshots/${type}-reset.png` })
 
     const close = await page.$('.tour-close-tip')
-    await close!.click()
+    if (close) {
+      await close.click()
+    }
     await page.waitFor(100)
     await page.screenshot({ path: `screenshots/${type}-close.png` })
 
-    await cleanLocalstorage!.click()
+    if (cleanLocalstorage) {
+      await cleanLocalstorage.click()
+    }
   }
 
-  browser.close()
+  await browser.close()
 })()
