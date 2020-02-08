@@ -8,13 +8,12 @@
 [![Downloads](https://img.shields.io/npm/dm/tour-component.svg)](https://www.npmjs.com/package/tour-component)
 [![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fplantain-00%2Ftour-component%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/tour-component)
 
-A vuejs, reactjs and angular tour component.
+A vuejs and reactjs tour component.
 
 ## features
 
 + vuejs component
 + reactjs component
-+ angular component
 + highlight target element
 + scroll to target
 
@@ -75,31 +74,6 @@ or
 ```
 
 the online demo: <https://plantain-00.github.io/tour-component/packages/react/demo>
-
-## angular component
-
-`npm i angular-tour-component`
-
-```ts
-import { TourModule } from "angular/tour-component";
-
-@NgModule({
-    imports: [BrowserModule, FormsModule, TourModule],
-    declarations: [MainComponent],
-    bootstrap: [MainComponent],
-})
-class MainModule { }
-```
-
-```html
-<tour [data]="data"
-    (update)="update($event)">
-</tour>
-```
-
-the online demo: <https://plantain-00.github.io/tour-component/packages/angular/demo/jit>
-
-the AOT online demo: <https://plantain-00.github.io/tour-component/packages/angular/demo/aot>
 
 ## properties and events of the component
 
