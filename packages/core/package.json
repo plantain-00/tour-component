@@ -3,7 +3,7 @@
   "version": "6.4.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "description": "A vuejs, reactjs and angular tour component.",
+  "description": "A vuejs and reactjs tour component.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/plantain-00/tour-component.git"
