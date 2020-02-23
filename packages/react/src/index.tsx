@@ -21,7 +21,7 @@ export class Tour extends React.PureComponent<{
     return common.getStepPosition(this.step)
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.index = this.props.data.index
   }
 
