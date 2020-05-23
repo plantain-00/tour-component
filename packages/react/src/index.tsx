@@ -8,7 +8,7 @@ export * from 'tour-component'
 export class Tour extends React.PureComponent<{
   data: common.TourData;
   update: (index: number) => void;
-}, {}> {
+}, unknown> {
   private index = 0
 
   private get step() {
