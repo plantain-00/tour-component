@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom'
 import { Tour } from '../dist/'
 import { data } from 'tour-component/demo/'
 
-class Main extends React.Component<{}, {}> {
+class Main extends React.Component<unknown, unknown> {
   private data = data
 
   private get tourIsVisible() {
