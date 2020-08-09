@@ -17,9 +17,6 @@
     "url": "https://github.com/plantain-00/tour-component/issues"
   },
   "homepage": "https://github.com/plantain-00/tour-component#readme",
-  "files": [
-    "dist"
-  ],
   "devDependencies": {
     "@types/react": "16.9.44",
     "@types/react-dom": "16.9.8"
@@ -28,5 +25,8 @@
     "react": "16",
     "react-dom": "16",
     "tour-component": "^6.5.1"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }
