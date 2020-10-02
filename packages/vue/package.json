@@ -19,8 +19,7 @@
   "homepage": "https://github.com/plantain-00/tour-component#readme",
   "dependencies": {
     "tour-component": "^6.5.1",
-    "vue": "2",
-    "vue-class-component": "7"
+    "vue": "3"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
