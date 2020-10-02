@@ -1,14 +1,14 @@
-import { ConfigData } from 'file2variable-cli'
+import { Configuration } from 'file2variable-cli'
 
-export default {
+const config: Configuration = {
   base: 'packages/vue/src/',
   files: [
     'packages/vue/src/*.template.html'
   ],
   handler: () => ({
-    type: 'vue',
-    name: 'Tour',
-    path: './index'
+    type: 'vue3',
   }),
   out: 'packages/vue/src/variables.ts'
-} as ConfigData
+}
+
+export default config

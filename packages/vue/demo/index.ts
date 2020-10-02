@@ -1,9 +1,27 @@
-import Vue from 'vue'
-import Component from 'vue-class-component'
-import '../dist/'
+import { createApp, defineComponent } from 'vue'
+import { Tour } from '../dist/'
 import { data } from 'tour-component/demo/'
 
-@Component({
+const App = defineComponent({
+  data: () => {
+    return {
+      data,
+    }
+  },
+  computed: {
+    tourIsVisible(): boolean {
+      return this.data.index >= 0 && this.data.index < this.data.steps.length
+    },
+  },
+  methods: {
+    deleteValue() {
+      localStorage.removeItem(data.localStorageKey)
+      this.update(0)
+    },
+    update(index: number) {
+      this.data.index = index
+    },
+  },
   template: `
     <div>
         <a href="https://github.com/plantain-00/tour-component/tree/master/packages/vue/demo" target="_blank">the source code of the demo</a>
@@ -20,21 +38,7 @@ import { data } from 'tour-component/demo/'
     </div>
     `
 })
-class App extends Vue {
-  data = data
 
-  get tourIsVisible() {
-    return this.data.index >= 0 && this.data.index < this.data.steps.length
-  }
-
-  deleteValue() {
-    localStorage.removeItem(data.localStorageKey)
-    this.update(0)
-  }
-
-  update(index: number) {
-    this.data.index = index
-  }
-}
-
-new App({ el: '#container' })
+const app = createApp(App)
+app.component('tour', Tour)
+app.mount('#container')

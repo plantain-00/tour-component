@@ -31,7 +31,8 @@ A vuejs and reactjs tour component.
 `npm i vue-tour-component`
 
 ```ts
-import "vue-tour-component";
+import { Tour } from "vue-tour-component";
+app.component('tour', Tour)
 ```
 
 or
@@ -106,6 +107,14 @@ type Step = {
 ```
 
 ## change log
+
+```ts
+// v5 vue 2
+import 'vue-tour-component'
+// v6 vue 3
+import { Tour } from "vue-tour-component"
+app.component('tour', Tour)
+```
 
 ```bash
 # v5

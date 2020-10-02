@@ -1,6 +1,6 @@
 {
   "name": "tour-component",
-  "version": "6.5.1",
+  "version": "7.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "A vuejs and reactjs tour component.",
