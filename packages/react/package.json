@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/plantain-00/tour-component#readme",
   "devDependencies": {
-    "@types/react": "16.9.49",
+    "@types/react": "16.9.50",
     "@types/react-dom": "16.9.8"
   },
   "dependencies": {
