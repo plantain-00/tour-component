@@ -12,13 +12,9 @@ export default {
   output: {
     name: 'Tour',
     file: 'packages/vue/dist/vue-tour-component.min.js',
-    format: 'umd',
-    globals: {
-      'vue-class-component': 'VueClassComponent'
-    }
+    format: 'umd'
   },
   external: [
-    'vue',
-    'vue-class-component'
+    'vue'
   ]
 }
