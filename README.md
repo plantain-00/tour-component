@@ -2,7 +2,6 @@
 
 [![Dependency Status](https://david-dm.org/plantain-00/tour-component.svg)](https://david-dm.org/plantain-00/tour-component)
 [![devDependency Status](https://david-dm.org/plantain-00/tour-component/dev-status.svg)](https://david-dm.org/plantain-00/tour-component#info=devDependencies)
-[![Build Status: Linux](https://travis-ci.org/plantain-00/tour-component.svg?branch=master)](https://travis-ci.org/plantain-00/tour-component)
 [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/github/plantain-00/tour-component?branch=master&svg=true)](https://ci.appveyor.com/project/plantain-00/tour-component/branch/master)
 ![Github CI](https://github.com/plantain-00/tour-component/workflows/Github%20CI/badge.svg)
 [![npm version](https://badge.fury.io/js/tour-component.svg)](https://badge.fury.io/js/tour-component)
