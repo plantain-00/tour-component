@@ -20,8 +20,8 @@ export const Tour = defineComponent({
     }
   },
   computed: {
-    step(): common.Step | null {
-      return (this.index < this.data.steps.length && this.index >= 0) ? this.data.steps[this.index] : null
+    step(): common.Step | undefined {
+      return (this.index < this.data.steps.length && this.index >= 0) ? this.data.steps[this.index] : undefined
     },
     arrowClassName(): string {
       return this.step ? `tour-arrow tt-${this.step.direction}` : 'tour-arrow'
