@@ -43,7 +43,7 @@ export function getPosition(position?: string | (() => string)) {
 /**
  * @public
  */
-export function getStepPosition(step: Step | null) {
+export function getStepPosition(step: Step | undefined) {
   return step ? {
     left: getPosition(step.left),
     right: getPosition(step.right),

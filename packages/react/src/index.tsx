@@ -12,7 +12,7 @@ export class Tour extends React.PureComponent<{
   private index = 0
 
   private get step() {
-    return (this.props.data.index < this.props.data.steps.length && this.props.data.index >= 0) ? this.props.data.steps[this.props.data.index] : null
+    return (this.props.data.index < this.props.data.steps.length && this.props.data.index >= 0) ? this.props.data.steps[this.props.data.index] : undefined
   }
   private get arrowClassName() {
     return this.step ? `tour-arrow tt-${this.step.direction}` : 'tour-arrow'
